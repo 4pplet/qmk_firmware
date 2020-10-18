@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Mathias Andersson <wraul@dbox.se>
+Copyright 2020 Stefan Sundin "4pplet" <4pplet@protonmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -21,14 +21,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID 0x4D57  // "MW" = Masterworks
-#define PRODUCT_ID 0x0001
+#define PRODUCT_ID 0x0002
 #define DEVICE_VER 0x0001
 #define MANUFACTURER Masterworks
-#define PRODUCT Classy TKL
+#define PRODUCT Lewis
 
 /* key matrix size */
-#define MATRIX_ROWS 6
-#define MATRIX_COLS 17
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 14
 
 /*
  * Keyboard Matrix Assignments
@@ -41,9 +41,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 #define MATRIX_ROW_PINS \
-    { C7, F0, F1, F4, F5, F6 }
+    { D0, C2, D4, D3, D2 }
 #define MATRIX_COL_PINS \
-    { B4, D7, D6, D4, C6, D5, D3, D2, D1, D0, B7, B3, B2, B1, B0, E6, F7 }
+    { C5, C6, C7, B7, B6, B5, B4, B3, B2, B1, B0, D6, D5, D1 }
 #define UNUSED_PINS
 
 /* COL2ROW, ROW2COL*/
