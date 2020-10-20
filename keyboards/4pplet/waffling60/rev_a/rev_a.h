@@ -1,6 +1,7 @@
 #pragma once
 
 #include "quantum.h"
+<<<<<<< HEAD
 /*
 #define RGB_OFF 0,0,0
 #define RGB_WHITE 255, 255, 255
@@ -41,6 +42,8 @@ enum waffling_layers {
   _FN1,
   _FN2,
 };
+=======
+>>>>>>> master
 
 // k<row><col>
 #define LAYOUT_all( \

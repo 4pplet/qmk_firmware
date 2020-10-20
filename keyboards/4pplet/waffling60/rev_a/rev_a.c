@@ -1,4 +1,5 @@
 #include "rev_a.h"
+<<<<<<< HEAD
 #include "led.h"
 
 void keyboard_pre_init_kb(void) {
@@ -83,3 +84,5 @@ uint16_t cie_lightness(uint16_t v) {
             return (uint16_t)y;
     }
 }
+=======
+>>>>>>> master
