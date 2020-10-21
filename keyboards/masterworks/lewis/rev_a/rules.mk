@@ -21,4 +21,4 @@ BLUETOOTH_ENABLE = no       # Enable Bluetooth
 AUDIO_ENABLE = no           # Audio output
 
 # Supported layouts
-LAYOUTS = ansi_wkl iso_wkl
+LAYOUTS = ansi_wkl iso_wkl all
