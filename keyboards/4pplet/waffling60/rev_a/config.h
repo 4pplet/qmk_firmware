@@ -24,15 +24,10 @@
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST
 
-<<<<<<< HEAD
 #define RGBLED_NUM 1
 
 /* Set 0 if debouncing isn't needed */
-#define DEBOUNCE 0
-=======
-/* Set 0 if debouncing isn't needed */
 #define DEBOUNCE 5
->>>>>>> master
 
 #define QMK_ESC_OUTPUT D3 // usually COL
 #define QMK_ESC_INPUT D4 // usually ROW

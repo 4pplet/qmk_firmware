@@ -7,8 +7,8 @@
 #define PRODUCT_ID      0x0004
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    4pplet
-#define PRODUCT         bootleg-1 Rev A
-#define DESCRIPTION     
+#define PRODUCT         bootleg Rev A
+#define DESCRIPTION
 
 /* key matrix size */
 #define MATRIX_ROWS 5
