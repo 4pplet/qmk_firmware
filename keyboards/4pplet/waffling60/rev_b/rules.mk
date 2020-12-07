@@ -2,13 +2,6 @@
 MCU = atmega32u2
 
 # Bootloader selection
-#   Teensy       halfkay
-#   Pro Micro    caterina
-#   Atmel DFU    atmel-dfu
-#   LUFA DFU     lufa-dfu
-#   QMK DFU      qmk-dfu
-#   ATmega32A    bootloadHID
-#   ATmega328P   USBasp
 BOOTLOADER = atmel-dfu
 
 # Build Options
@@ -24,8 +17,6 @@ SLEEP_LED_ENABLE = no       # Breathing sleep LED during USB suspend
 # if this doesn't work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work
 NKRO_ENABLE = no            # USB Nkey Rollover
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
-RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
-MIDI_ENABLE = no            # MIDI support
-AUDIO_ENABLE = no           # Audio output on port C6
-FAUXCLICKY_ENABLE = no      # Use buzzer to emulate clicky switches
-UNICODE_ENABLE = no         # Unicode
+RGBLIGHT_ENABLE = yes       # Enable keyboard RGB underglow
+BLUETOOTH_ENABLE = no       # Enable Bluetooth
+AUDIO_ENABLE = no           # Audio output
