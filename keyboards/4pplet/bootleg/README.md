@@ -1,6 +1,6 @@
-# bootleg-1
+# bootleg
 
-A 60% PCB for non tray-mount Cherry MX keyboards
+A 60% PCB for non tray-mount keyboards
 
 * Keyboard Maintainer: [4pplet](https://github.com/4pplet)
 * Hardware Supported: bootleg Rev A
