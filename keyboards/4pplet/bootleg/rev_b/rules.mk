@@ -2,6 +2,7 @@
 MCU = STM32F103
 
 # Bootloader selection
+# BOOTLOADER = vibl
 BOOTLOADER = stm32duino
 
 # project specific files
