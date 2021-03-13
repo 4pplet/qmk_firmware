@@ -45,14 +45,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLED_NUM 16
 #define WS2812_SPI SPID2
 
-
 #define ENCODER_RESOLUTION 2
 #define ENCODERS_PAD_A { B5 }
 #define ENCODERS_PAD_B { B4 }
 
 #define VIAL_KEYBOARD_UID {0x71, 0xDD, 0x6F, 0x80, 0x44, 0xE7, 0x94, 0x58}
-#define VIAL_UNLOCK_COMBO_ROWS { 0 }
-#define VIAL_UNLOCK_COMBO_COLS { 0 }
+#define VIAL_UNLOCK_COMBO_ROWS { 0 } // FIX THIS
+#define VIAL_UNLOCK_COMBO_COLS { 0 } // FIX THIS
 
 #define USB_POLLING_INTERVAL_MS 1
 
