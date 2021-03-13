@@ -50,8 +50,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENCODERS_PAD_B { B4 }
 
 #define VIAL_KEYBOARD_UID {0x71, 0xDD, 0x6F, 0x80, 0x44, 0xE7, 0x94, 0x58}
-#define VIAL_UNLOCK_COMBO_ROWS { 0 } // FIX THIS
-#define VIAL_UNLOCK_COMBO_COLS { 0 } // FIX THIS
+#define VIAL_UNLOCK_COMBO_ROWS { 0, 2 }
+#define VIAL_UNLOCK_COMBO_COLS { 0, 14 }
 
 #define USB_POLLING_INTERVAL_MS 1
 
