@@ -22,9 +22,10 @@
  *
  */
 #define MATRIX_ROW_PINS { B1, B10, B11, B14, B12 }
-#define MATRIX_COL_PINS { A6, A7, B0, B13, B15, A8, A15, B3, B4, B5, B8, B9, C13, C14 }
+//#define MATRIX_COL_PINS { A6, A7, B0, B13, B15, A8, A15, B3, B4, B5, B8, B9, C13, C14 } (old)
+#define MATRIX_COL_PINS { A6, A7, B0, B13, B15, A8, A15, B3, A2, B5, B8, B9, C13, C14 }
 #define UNUSED_PINS
-
+// col with 8 does not, patched: B4 -> A2
 /* COL2ROW, ROW2COL*/
 #define DIODE_DIRECTION COL2ROW
 
