@@ -1,5 +1,5 @@
 #include "rev_b.h"
-
+/*
 void matrix_init_kb(void) {
     // put your keyboard start-up code here
     // runs once when the firmware starts up
@@ -19,3 +19,4 @@ bool led_update_kb(led_t led_state) {
     }
     return res;
 }
+*/
