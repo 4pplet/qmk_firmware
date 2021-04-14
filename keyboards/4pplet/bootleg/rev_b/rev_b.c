@@ -7,7 +7,7 @@ void matrix_init_kb(void) {
     setPinOutput(CAPS_PIN);
     setPinOutput(SCROLL_PIN);
     setPinOutput(NUM_PIN);
-    // make sure pins are off by default (bootloader may set these high)
+    // make sure pins are off by default (bootloader may set these low, led on)
     writePin(CAPS_PIN, 1);
     writePin(SCROLL_PIN, 1);
     writePin(NUM_PIN, 1);
