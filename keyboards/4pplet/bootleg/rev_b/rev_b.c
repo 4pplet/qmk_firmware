@@ -1,5 +1,5 @@
 #include "rev_b.h"
-/*
+
 void matrix_init_kb(void) {
     // put your keyboard start-up code here
     // runs once when the firmware starts up
@@ -7,6 +7,9 @@ void matrix_init_kb(void) {
     setPinOutput(CAPS_PIN);
     setPinOutput(SCROLL_PIN);
     setPinOutput(NUM_PIN);
+    writePin(CAPS_PIN, 1);
+    writePin(SCROLL_PIN, 1);
+    writePin(NUM_PIN, 1);
     matrix_init_user();
 }
 
@@ -19,4 +22,4 @@ bool led_update_kb(led_t led_state) {
     }
     return res;
 }
-*/
+

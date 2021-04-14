@@ -57,9 +57,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USB_POLLING_INTERVAL_MS 1
 
 /* If LOCK_LIGHTS is set to true, lock lights will be displayed on RGB capslock led */
-/*
+
 #define LOCK_LIGHTS TRUE
 #define CAPS_PIN A10 // green, timer channel 3
 #define NUM_PIN A9 // red, timer channel 2
 #define SCROLL_PIN A8 // blue, timer channel 1
-*/
+
