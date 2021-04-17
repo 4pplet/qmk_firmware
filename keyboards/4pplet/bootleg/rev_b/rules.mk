@@ -1,9 +1,6 @@
 # MCU name
-MCU = STM32F103
-# Bootloader selection
-BOOTLOADER = stm32duino
-
-DFU_ARGS = -d 6b62:0000 -R
+MCU = STM32F303
+BOARD = QMK_PROTON_C
 
 BOOTMAGIC_ENABLE = lite	# Virtual DIP switch configuration
 MOUSEKEY_ENABLE = yes	# Mouse keys
