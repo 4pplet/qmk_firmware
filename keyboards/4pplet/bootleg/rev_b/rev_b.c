@@ -9,18 +9,20 @@ void matrix_init_kb(void) {
     setPinInputHigh(NUM_PIN);
     */
     // make sure pins are off by default (bootloader may set these low, led on)
+    /*
     setPinOutput(CAPS_PIN);
     writePin(SCROLL_PIN, 1);
     setPinOutput(CAPS_PIN);
     writePin(SCROLL_PIN, 1);
     setPinOutput(NUM_PIN);
     writePin(NUM_PIN, 1);
+    */
     matrix_init_user();
 }
 
 bool led_update_kb(led_t led_state) {
     bool res = led_update_user(led_state);
-
+/*
     if(res && LOCK_LIGHTS) {
 
         if(led_state.caps_lock){
@@ -40,7 +42,7 @@ bool led_update_kb(led_t led_state) {
             writePin(NUM_PIN, 1);
 
     }
-
+*/
     return res;
 }
 
