@@ -46,7 +46,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_DI_PIN B15
 #define RGBLED_NUM 16
 #define WS2812_SPI SPID2
-#define WS2812_BYTE_ORDER WS2812_BYTE_ORDER_RGB
+//#define WS2812_BYTE_ORDER WS2812_BYTE_ORDER_RGB
 
 #define ENCODER_RESOLUTION 2
 #define ENCODERS_PAD_A { B5 }
