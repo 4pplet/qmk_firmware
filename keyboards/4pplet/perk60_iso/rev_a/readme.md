@@ -1,6 +1,4 @@
-# Viper/Eagle REP Rev A
-
-A alternative PCB for Viper and Eagle V2 and V3
+# Perk60 ISO Rev A
 
 * Keyboard Maintainer: [4pplet](https://github.com/4pplet)
 * Hardware Supported: Perk60 ISO Rev A
