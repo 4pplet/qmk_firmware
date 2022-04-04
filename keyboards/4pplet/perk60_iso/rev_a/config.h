@@ -42,3 +42,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DRIVER_COUNT 1
 #define DRIVER_1_LED_TOTAL 62
 #define DRIVER_LED_TOTAL DRIVER_1_LED_TOTAL
+
+#define STM32_HSECLK 8000000

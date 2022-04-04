@@ -16,6 +16,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "rev_a.h"
 
+#ifdef RGBLIGHT_ENABLE
+void keyboard_post_init_user(void) {
+  rgblight_enable_noeeprom(); // Enables RGB, without saving settings
+  rgblight_sethsv_noeeprom(HSV_PURPLE);
+  rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
+}
+#endif
 
 const is31_led PROGMEM g_is31_leds[DRIVER_LED_TOTAL] = {
     { 0, K_2,  J_2,  L_2 }, //D402 - 14 //0
@@ -113,7 +120,7 @@ led_config_t g_led_config = {
         1, 1, 1, 4, 1, 1, 1, 1
     }
 };
-
+/*
 void suspend_power_down_kb(void) {
     rgb_matrix_set_suspend_state(true);
     suspend_power_down_user();
@@ -130,3 +137,4 @@ void rgb_matrix_indicators_user(void) {
         rgb_matrix_set_color(28, 0xFF, 0xFF, 0xFF);
     }
 }
+*/
