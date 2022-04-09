@@ -16,6 +16,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
 
+#define CAPS_LOCK_ENABLE true
+#define CAPS_LOCK_COLOR RGB_RED
+#define CAPS_LED_GROUP LED_FLAG_INDICATOR // change what leds to target, for example LED_FLAG_KEYLIGHT for alpas or LED_FLAG_MODIFIER for modifiers
+
 #include "quantum.h"
 
 #define LAYOUT_all( \
@@ -23,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     k20, k30, k21, k31, k22, k32, k23, k33, k24, k34, k25, k35, k26, k76,\
     k40, k50, k41, k51, k42, k52, k43, k53, k44, k54, k45, k55, k46,\
     k60, k70, k61, k71, k62, k72, k63, k73, k64, k74, k65, k75, k86,\
-    k80, k81, k90,                k83, k93,      k94, k85, k95  \
+    k80, k90, k81,                k83, k93,      k94, k85, k95  \
 ) \
 { \
     {k00, k01, k02, k03, k04, k05, k06}, \
