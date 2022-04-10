@@ -1,5 +1,5 @@
 /*
-Copyright 2021 Stefan Sundin "4pplet" <4pplet@protonmail.com>
+Copyright 2022 Stefan Sundin "4pplet" <4pplet@protonmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -45,11 +45,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define STM32_HSECLK 8000000
 
-
 #define RGB_MATRIX_STARTUP_VAL 80
 #define RGB_MATRIX_KEYPRESSES
 #define RGB_MATRIX_FRAMEBUFFER_EFFECTS
-
 
 // RGB Matrix Animation modes. Explicitly enabled
 // For full list of effects, see:

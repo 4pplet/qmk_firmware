@@ -35,7 +35,8 @@
     defined(RGB_BACKLIGHT_WT60_B) || \
     defined(RGB_BACKLIGHT_WT60_BX) || \
     defined(RGB_BACKLIGHT_WT60_C) || \
-    defined(RGB_BACKLIGHT_M50_A)
+    defined(RGB_BACKLIGHT_M50_A) || \
+    defined(RGB_BACKLIGHT_PERK60_ISO_A)
 #else
 #error wt_rgb_backlight.c compiled without setting configuration symbol
 #endif
@@ -53,7 +54,7 @@
 #include "wt_rgb_backlight_api.h"
 #include "wt_rgb_backlight_keycodes.h"
 
-#if !defined(RGB_BACKLIGHT_HS60) && !defined(RGB_BACKLIGHT_NK65) && !defined(RGB_BACKLIGHT_NK87) && !defined(RGB_BACKLIGHT_NEBULA68) && !defined(RGB_BACKLIGHT_NEBULA12) && !defined (RGB_BACKLIGHT_KW_MEGA)
+#if !defined(RGB_BACKLIGHT_HS60) && !defined(RGB_BACKLIGHT_PERK60_ISO_A) && !defined(RGB_BACKLIGHT_NK65) && !defined(RGB_BACKLIGHT_NK87) && !defined(RGB_BACKLIGHT_NEBULA68) && !defined(RGB_BACKLIGHT_NEBULA12) && !defined (RGB_BACKLIGHT_KW_MEGA)
 #include <avr/interrupt.h>
 #include "i2c_master.h"
 #else
@@ -90,6 +91,9 @@ LED_TYPE g_ws2812_leds[WS2812_LED_TOTAL];
 #elif defined(RGB_BACKLIGHT_NK87)
 #include "drivers/led/issi/is31fl3733.h"
 #define BACKLIGHT_LED_COUNT 128
+#elif defined(RGB_BACKLIGHT_PERK60_ISO_A)
+#include "drivers/led/issi/is31fl3733.h"
+#define BACKLIGHT_LED_COUNT 62
 #elif defined(RGB_BACKLIGHT_PORTICO75)
 #include "drivers/led/issi/is31fl3741.h"
 #define BACKLIGHT_LED_COUNT 98
@@ -154,6 +158,7 @@ uint8_t g_key_hit[BACKLIGHT_LED_COUNT];
 
 // Ticks since any key was last hit.
 uint32_t g_any_key_hit = 0;
+
 
 #if defined(RGB_BACKLIGHT_HS60)
 
@@ -856,6 +861,77 @@ const is31_led PROGMEM g_is31_leds[DRIVER_LED_TOTAL] = {
     {0, C9_15, C8_15, C6_14}, // LB15
     {0, C9_16, C7_15, C6_15}  // LB16
 };
+
+#elif defined(RGB_BACKLIGHT_PERK60_ISO_A)
+
+#define ISSI_ADDR_1 0x50
+
+const is31_led PROGMEM g_is31_leds[DRIVER_LED_TOTAL] = {
+     { 0, K_2,  J_2,  L_2 }, //D402 - 14 //0
+    { 0, K_3,  J_3,  L_3 }, //D403 - 13 //1
+    { 0, K_4,  J_4,  L_4 }, //D404 - 12 //2
+    { 0, K_5,  J_5,  L_5 }, //D405 - 11 //3
+    { 0, K_6,  J_6,  L_6 }, //D406 - 10 //4
+    { 0, K_7,  J_7,  L_7 }, //D407 - 9 //5
+    { 0, K_8,  J_8,  L_8 }, //D408 - 8 //6
+    { 0, K_9,  J_9,  L_9 }, //D409 - 7 //7
+    { 0, K_10, J_10, L_10 }, //D410 - 6 //8
+    { 0, K_11, J_11, L_11 }, //D411 - 5 //9
+    { 0, K_12, J_12, L_12 }, //D412 - 4 //10
+    { 0, K_13, J_13, L_13 }, //D413 - 3 //11
+    { 0, K_14, J_14, L_14 }, //D414 - 2 //12
+    { 0, K_15, J_15, L_15 }, //D415 - 1 //13
+    { 0, K_1,  J_1,  L_1 }, //D401 - 15 //14
+    { 0, H_4,  G_4,  I_4 }, //D420 - 28 //15
+    { 0, H_5,  G_5,  I_5 }, //D421 - 27 //16
+    { 0, H_6,  G_6,  I_6 }, //D422 - 26 //17
+    { 0, H_7,  G_7,  I_7 }, //D423 - 25 //18
+    { 0, H_8,  G_8,  I_8 }, //D424 - 24 //19
+    { 0, H_9,  G_9,  I_9 }, //D425 - 23 //20
+    { 0, H_10, G_10, I_10 }, //D426 - 22 //21
+    { 0, H_11, G_11, I_11 }, //D427 - 21 //22
+    { 0, H_12, G_12, I_12 }, //D428 - 20 //23
+    { 0, H_13, G_13, I_13 }, //D429 - 19 //24
+    { 0, H_14, G_14, I_14 }, //D430 - 18 //25
+    { 0, H_15, G_15, I_15 }, //D431 - 17 //26
+    { 0, K_16, J_16, L_16 }, //D416 - 0 //27
+    { 0, H_2,  G_2,  I_2 }, //D418 - 30 //28
+    { 0, H_3,  G_3,  I_3 }, //D419 - 29 //29
+    { 0, E_5,  D_5,  F_5 }, //D437 - 42 //30
+    { 0, E_6,  D_6,  F_6 }, //D438 - 41 //31
+    { 0, E_7,  D_7,  F_7 }, //D439 - 40 //32
+    { 0, E_8,  D_8,  F_8 }, //D440 - 39 //33
+    { 0, E_9,  D_9,  F_9 }, //D441 - 38 //34
+    { 0, E_10, D_10, F_10 }, //D442 - 37 //35
+    { 0, E_11, D_11, F_11 }, //D443 - 36 //36
+    { 0, E_12, D_12, F_12 }, //D444 - 35 //37
+    { 0, E_13, D_13, F_13 }, //D445 - 34 //38
+    { 0, E_14, D_14, F_14 }, //D446 - 33 //39
+    { 0, H_16, G_16, I_16 }, //D432 - 16 //40
+    { 0, H_1,  G_1,  I_1 }, //D417 - 31 //41
+    { 0, E_3,  D_3,  F_3 }, //D435 - 44 //42
+    { 0, E_4,  D_4,  F_4 }, //D436 - 43 //43
+    { 0, B_2,  A_2,  C_2 }, //D450 - 60 //44
+    { 0, B_3,  A_3,  C_3 }, //D451 - 59 //45
+    { 0, B_4,  A_4,  C_4 }, //D452 - 58 //46
+    { 0, B_6,  A_6,  C_6 }, //D454 - 57 //47
+    { 0, B_8,  A_8,  C_8 }, //D456 - 55 //48
+    { 0, B_9,  A_9,  C_9 }, //D457 - 54 //49
+    { 0, B_10, A_10, C_10 }, //D458 - 53 //50
+    { 0, B_12, A_12, C_12 }, //D460 - 51//51
+    { 0, B_13, A_13, C_13 }, //D461 - 50 //52
+    { 0, E_15, D_15, F_15 }, //D447 - 32 //53
+    { 0, E_1,  D_1,  F_1 }, //D433 - 46 //54
+    { 0, E_2,  D_2,  F_2 }, //D434 - 45 //55
+    { 0, B_1,  A_1,  C_1 }, //D449 - 61 //56
+    { 0, B_7,  A_7,  C_7 }, //D455 - 56 //57
+    { 0, B_11, A_11, C_11 }, //D459 - 52//58
+    { 0, B_14, A_14, C_14 }, //D462 - 49 //59
+    { 0, B_15,  A_15,  C_15 }, //D463 - 48//60
+    { 0, B_16,  A_16,  C_16 } //D464 - 47 //61
+};
+
+
 #else
 // This is a 7-bit address, that gets left-shifted and bit 0
 // set to 0 for write, 1 for read (as per I2C protocol)
@@ -1441,6 +1517,19 @@ const Point g_map_led_to_point_polar[BACKLIGHT_LED_COUNT] PROGMEM = {
     {255,255}, {201,88}, {217,104}, {227,130}, {233,162}, {238,197}, {241,233}, {255,255}, {255,255},
     {255,255}, {201,255}, {207,255}, {212,255}, {217,255}, {221,255}, {255,255}, {255,255}, {255,255}
 };
+
+
+#elif defined(RGB_BACKLIGHT_PERK60_ISO_A)
+
+const Point g_map_led_to_point[BACKLIGHT_LED_COUNT] PROGMEM = {
+    {  0,0  }, { 16,0  }, { 32,0  }, { 48,0  }, { 65,0  }, { 81,0  }, { 97,0  }, {113,0  }, {129,0  }, {145,0  },
+    {161,0  }, {178,0  }, {194,0  }, {218,0  }, {  4,16 }, { 24,16 }, { 40,16 }, { 57,16 }, { 73,16 }, { 89,16 },
+    {105,16 }, {121,16 }, {137,16 }, {153,16 }, {170,16 }, {186,16 }, {202,16 }, {224,24 }, {  6,32 }, { 28,32 },
+    { 44,32 }, { 61,32 }, { 77,32 }, { 93,32 }, {109,32 }, {125,32 }, {141,32 }, {157,32 }, {174,32 }, {190,32 },
+    {206,32 }, {  2,48 }, { 20,48 }, { 36,48 }, { 52,48 }, { 69,48 }, { 85,48 }, {101,48 }, {117,48 }, {133,48 },
+    {149,48 }, {165,48 }, {182,48 }, {212,48 }, {  2,64 }, { 22,64 }, { 42,64 }, {103,64 }, {163,64 }, {184,64 },
+    {204,64 }, {224,64 },
+};
 #endif
 
 // This may seem counter-intuitive, but it's quite flexible.
@@ -1757,6 +1846,15 @@ const uint8_t g_map_row_column_to_led[MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
     {  0+16,   0+6,   0+5,   0+4,   0+3,   0+2,   0+1,  18+9, 18+10, 18+11, 18+12, 18+13, 18+14 },
     { 36+15, 36+14, 36+13, 36+12, 36+11, 36+10,  36+9,  54+1,  54+2,  54+3,  54+4,  54+5,  54+6 },
     {  36+7,  36+6,  36+5,  36+4,  36+3,  36+2,  36+1,   255, 54+10, 54+11, 54+12, 54+13, 54+14 },
+};
+
+#elif defined(RGB_BACKLIGHT_PERK60_ISO_A) // this needs to be updated
+const uint8_t g_map_row_column_to_led[MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
+    { -1+16, -1+15, -1+14, -1+13, -1+12, -1+11, -1+10, -1+9 , 15+1 , 15+2 , 15+3 , 15+4 , 15+5 , 15+6 },
+    { -1+7 , -1+6 , -1+5 , -1+4 , -1+3 , -1+2 , -1 +1, 15+9 , 15+10, 15+11, 15+12, 15+13, 15+14, 15+15},
+    { -1+8 , 31+14, 31+13, 31+12, 31+11, 31+10, 31+9 , 47+1 , 47+2 , 47+3 , 47+4 , 47+5 , 15+8 , 15+7 },
+    { 31+15, 31+5 , 31+4 , 31+3 , 31+2 , 31+1 , 47+9 , 47+10, 47+11, 47+12, 255  ,47+6 , 47+7 , 15+16},
+    { 31+16, 31+8 , 31+7 , 255  , 255  , 31+6 , 255  , 255  , 255  , 47+13, 47+14, 47+15, 47+16, 47+8 }
 };
 #endif
 

@@ -1,5 +1,5 @@
 /*
-Copyright 2021 Stefan Sundin "4pplet" <4pplet@protonmail.com>
+Copyright 2022 Stefan Sundin "4pplet" <4pplet@protonmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -124,4 +124,14 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             }
         }
     }
+}
+
+void suspend_power_down_kb(void) {
+    rgb_matrix_set_suspend_state(true);
+    suspend_power_down_user();
+}
+
+void suspend_wakeup_init_kb(void) {
+    rgb_matrix_set_suspend_state(false);
+    suspend_wakeup_init_user();
 }
