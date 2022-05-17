@@ -33,7 +33,7 @@ const is31_led PROGMEM g_is31_leds[DRIVER_LED_TOTAL] = {
     { 0, B_13, A_13, C_13 }, //D461
     { 0, B_14, A_14, C_14 }, //D462
     { 0, B_15,  A_15,  C_15 }, //D463
-    { 0, B_16,  A_16,  C_16 } //D464
+    { 0, B_16,  A_16,  C_16 }, //D464
     { 0, E_1,  D_1,  F_1 }, //D433
     { 0, E_2,  D_2,  F_2 }, //D434
     { 0, E_3,  D_3,  F_3 }, //D435
@@ -81,7 +81,7 @@ const is31_led PROGMEM g_is31_leds[DRIVER_LED_TOTAL] = {
     { 0, K_13, J_13, L_13 }, //D413
     { 0, K_14, J_14, L_14 }, //D414
     { 0, K_15, J_15, L_15 }, //D415
-    { 0, K_16, J_16, L_16 }, //D416
+    { 0, K_16, J_16, L_16 } //D416
 };
 
 led_config_t g_led_config = {
