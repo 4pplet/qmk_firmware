@@ -41,8 +41,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DRIVER_ADDR_1 0b1010000
 #define DRIVER_COUNT 1
 #define DRIVER_LED_TOTAL 64
-#define ISSI_PWM_FREQUENCY 0b010
-
+#define ISSI_PWM_FREQUENCY 0b011
+//0b001 pretty good
+//0b000 bad
+//0b010 kinda bad
+//0b011 really good
+//0b100 good, but 0b011 is better
 #define STM32_HSECLK 8000000
 
 #define RGB_MATRIX_STARTUP_VAL 80
