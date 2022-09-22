@@ -24,25 +24,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DIODE_DIRECTION COL2ROW
 
 /* In switch leds */
-#define BACKLIGHT_PIN           A3
-#define BACKLIGHT_PWM_DRIVER    PWMD2
-#define BACKLIGHT_PWM_CHANNEL   4
-#define BACKLIGHT_PAL_MODE      2
+//#define BACKLIGHT_PIN           A3
+//#define BACKLIGHT_PWM_DRIVER    PWMD2
+//#define BACKLIGHT_PWM_CHANNEL   4
+//#define BACKLIGHT_PAL_MODE      2
 #define BACKLIGHT_ON_STATE      1
 #define BACKLIGHT_LEVELS        10
 #define BACKLIGHT_BREATHING     TRUE
 
+// UPDATED:
 // In switch on PA6
 // Underglow on PA8 like waffling80
 
 /* Underglow */
-#define RGB_DI_PIN  A7
-#define WS2812_SPI  SPID1
-#define WS2812_SPI_MOSI_PAL_MODE 0
-#define WS2812_SPI_SCK_PIN A5
-#define WS2812_SPI_SCK_PAL_MODE 0
+#define RGB_DI_PIN  A8
 #define RGBLED_NUM  16
-#define RGBLIGHT_ANIMATIONS
+// ADD INFO
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
@@ -52,14 +49,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Indicator leds */
 #define LOCK_LIGHTS     TRUE
 #define DISPLAY_LAYERS  TRUE
-#define CAPS_PIN        B2
+#define CAPS_PIN        B1
 #define NUM_PIN         B12
 #define SCROLL_PIN      B13
 #define LAYER_1         B14
 #define LAYER_2         B15
-#define LAYER_3         A8
-#define LAYER_4         A9
-#define LAYER_5         B9
+#define LAYER_3         B0
+#define LAYER_4         B9
+#define LAYER_5         A9
 
 /* Set 0 if debouncing isn't needed */
 #define DEBOUNCE    5

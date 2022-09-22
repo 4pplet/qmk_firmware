@@ -25,7 +25,7 @@ void setLayerLed(layer_state_t state);
     k20, k30, k21, k31, k22, k32, k23, k33, k24, k34, k25, k35, k26, k56,\
     k40, k50, k41, k51, k42, k52, k43, k53, k44, k54, k45, k55, k46, k76,\
     k60, k70, k61, k71, k62, k72, k63, k73, k64, k74, k65, k75, k66, k96,\
-    k80, k90, k91, k93, k94, k85, k95, k86  \
+    k80, k90, k91, k92, k93, k84 ,k94, k85, k95, k86  \
 ) \
 { \
     {k00, k01, k02, k03, k04, k05, k06}, \
@@ -36,6 +36,6 @@ void setLayerLed(layer_state_t state);
     {k50, k51, k52, k53, k54, k55, k56}, \
     {k60, k61, k62, k63, k64, k65, k66}, \
     {k70, k71, k72, k73, k74, k75, k76}, \
-    {k80, KC_NO, KC_NO, KC_NO, KC_NO, k85, k86}, \
-    {k90, k91, KC_NO, k93, k94, k95, k96}  \
+    {k80, KC_NO, KC_NO, KC_NO, k84, k85, k86}, \
+    {k90, k91, k92, k93, k94, k95, k96}  \
 }
