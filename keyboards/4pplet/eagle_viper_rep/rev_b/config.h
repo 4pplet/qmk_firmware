@@ -24,10 +24,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DIODE_DIRECTION COL2ROW
 
 /* In switch leds */
-//#define BACKLIGHT_PIN           A3
-//#define BACKLIGHT_PWM_DRIVER    PWMD2
-//#define BACKLIGHT_PWM_CHANNEL   4
-//#define BACKLIGHT_PAL_MODE      2
+#define BACKLIGHT_PIN           A6
+#define BACKLIGHT_PWM_DRIVER    PWMD3
+#define BACKLIGHT_PWM_CHANNEL   1
+#define BACKLIGHT_PAL_MODE      2
 #define BACKLIGHT_ON_STATE      1
 #define BACKLIGHT_LEVELS        10
 #define BACKLIGHT_BREATHING     TRUE
@@ -37,9 +37,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Underglow on PA8 like waffling80
 
 /* Underglow */
-#define RGB_DI_PIN  A8
-#define RGBLED_NUM  16
-// ADD INFO
+#define RGBLED_NUM 2
+#define WS2812_EXTERNAL_PULLUP
+#define RGB_DI_PIN A8
+#define WS2812_PWM_DRIVER PWMD1
+#define WS2812_PWM_CHANNEL 1
+//#define WS2812_PWM_PAL_MODE 2  // Pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 2
+//#define WS2812_PWM_COMPLEMENTARY_OUTPUT // Define for a complementary timer output (TIMx_CHyN); omit for a normal timer output (TIMx_CHy).
+//#define WS2812_DMA_STREAM STM32_DMA1_STREAM2  // DMA Stream for TIMx_UP, see the respective reference manual for the appropriate values for your MCU.
+//#define WS2812_DMA_CHANNEL 2  // DMA Channel for TIMx_UP, see the respective reference manual for the appropriate values for your MCU.
+//#define WS2812_DMAMUX_ID STM32_DMAMUX1_TIM2_UP // DMAMUX configuration for TIMx_UP -- only required if your MCU has a DMAMUX peripheral, see the respective reference manual for the appropriate values for your MCU.
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
