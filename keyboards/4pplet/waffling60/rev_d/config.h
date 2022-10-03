@@ -39,7 +39,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define QMK_ESC_INPUT C4 // usually ROW
 
 // timer 1 channel 1 is used on waffling60 (PA8)
-#define RGBLED_NUM 2
+#define RGBLED_NUM 1
 #define WS2812_EXTERNAL_PULLUP
 #define RGB_DI_PIN A8
 #define WS2812_PWM_DRIVER PWMD1
