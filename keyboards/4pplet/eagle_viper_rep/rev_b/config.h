@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROWS 10
 #define MATRIX_COLS 7
 
-#define MATRIX_COL_PINS { A0, B1, B0, A4, B5, B4, B3 }
+#define MATRIX_COL_PINS { A0, A3, A4, A7, B5, B4, B3 }
 #define MATRIX_ROW_PINS { A2, A1, B8, A10, C15, A15, B7, B6, C14, C13}
 #define DIODE_DIRECTION COL2ROW
 
@@ -37,7 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Underglow on PA8 like waffling80
 
 /* Underglow */
-#define RGBLED_NUM 2
+#define RGBLED_NUM 16
 #define WS2812_EXTERNAL_PULLUP
 #define RGB_DI_PIN A8
 #define WS2812_PWM_DRIVER PWMD1
