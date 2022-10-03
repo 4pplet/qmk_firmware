@@ -27,26 +27,30 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define BACKLIGHT_PIN           A6
 #define BACKLIGHT_PWM_DRIVER    PWMD3
 #define BACKLIGHT_PWM_CHANNEL   1
-#define BACKLIGHT_PAL_MODE      2
+#define BACKLIGHT_PAL_MODE      1
+#define BACKLIGHT_LEVELS        6
+#define BACKLIGHT_BREATHING
+#define BREATHING_PERIOD        6
 #define BACKLIGHT_ON_STATE      1
-#define BACKLIGHT_LEVELS        10
-#define BACKLIGHT_BREATHING     TRUE
-
-// UPDATED:
-// In switch on PA6
-// Underglow on PA8 like waffling80
 
 /* Underglow */
 #define RGBLED_NUM 16
 #define WS2812_EXTERNAL_PULLUP
 #define RGB_DI_PIN A8
-#define WS2812_PWM_DRIVER PWMD1
-#define WS2812_PWM_CHANNEL 1
-#define WS2812_PWM_PAL_MODE 2  // Pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 2
-//#define WS2812_PWM_COMPLEMENTARY_OUTPUT // Define for a complementary timer output (TIMx_CHyN); omit for a normal timer output (TIMx_CHy).
-//#define WS2812_DMA_STREAM STM32_DMA1_STREAM2  // DMA Stream for TIMx_UP, see the respective reference manual for the appropriate values for your MCU.
-//#define WS2812_DMA_CHANNEL 2  // DMA Channel for TIMx_UP, see the respective reference manual for the appropriate values for your MCU.
-//#define WS2812_DMAMUX_ID STM32_DMAMUX1_TIM2_UP // DMAMUX configuration for TIMx_UP -- only required if your MCU has a DMAMUX peripheral, see the respective reference manual for the appropriate values for your MCU.
+
+#define RGBLIGHT_HUE_STEP 8
+#define RGBLIGHT_SAT_STEP 8
+#define RGBLIGHT_VAL_STEP 8
+#define RGBLIGHT_EFFECT_BREATHING
+#define RGBLIGHT_EFFECT_RAINBOW_MOOD
+#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
+#define RGBLIGHT_EFFECT_SNAKE
+#define RGBLIGHT_EFFECT_KNIGHT
+#define RGBLIGHT_EFFECT_CHRISTMAS
+#define RGBLIGHT_EFFECT_STATIC_GRADIENT
+#define RGBLIGHT_EFFECT_RGB_TEST
+#define RGBLIGHT_EFFECT_ALTERNATING
+#define RGBLIGHT_EFFECT_TWINKLE
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
 #define LOCKING_SUPPORT_ENABLE
