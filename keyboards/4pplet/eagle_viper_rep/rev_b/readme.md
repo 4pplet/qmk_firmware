@@ -1,9 +1,9 @@
-# Viper/Eagle REP Rev A
+# Viper/Eagle REP Rev B
 
 A alternative PCB for Viper and Eagle V2 and V3
 
 * Keyboard Maintainer: [4pplet](https://github.com/4pplet)
-* Hardware Supported: Viper/Eagle REP Rev A
+* Hardware Supported: Viper/Eagle REP Rev B
 
 Make example for this keyboard (after setting up your build environment):
 
