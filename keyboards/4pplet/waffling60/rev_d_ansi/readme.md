@@ -1,6 +1,6 @@
 # waffling60
 
-A 60% PCB for MX switches, one hot swap and one solder-pcb version with decent layout support.
+A 60% PCB for MX and alps switches, available in different configurations and layout supports.
 
 More info: https://geekhack.org/index.php?topic=103531.0
 
