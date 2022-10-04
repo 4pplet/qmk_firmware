@@ -35,18 +35,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define QMK_ESC_OUTPUT B2 // usually COL
 #define QMK_ESC_INPUT B14 // usually ROW
 
-// timer 1 channel 1 is used on waffling60 (PA8)
 #define RGBLED_NUM 1
 #define WS2812_EXTERNAL_PULLUP
 #define RGB_DI_PIN A8
-//#define WS2812_PWM_DRIVER PWMD1
-//#define WS2812_PWM_CHANNEL 1
-//#define WS2812_PWM_PAL_MODE 2  // Pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 2
-//#define WS2812_PWM_COMPLEMENTARY_OUTPUT // Define for a complementary timer output (TIMx_CHyN); omit for a normal timer output (TIMx_CHy).
-//#define WS2812_DMA_STREAM STM32_DMA1_STREAM2  // DMA Stream for TIMx_UP, see the respective reference manual for the appropriate values for your MCU.
-//#define WS2812_DMA_CHANNEL 2  // DMA Channel for TIMx_UP, see the respective reference manual for the appropriate values for your MCU.
-//#define WS2812_DMAMUX_ID STM32_DMAMUX1_TIM2_UP // DMAMUX configuration for TIMx_UP -- only required if your MCU has a DMAMUX peripheral, see the respective reference manual for the appropriate values for your MCU.
-
 
 #define BACKLIGHT_LEVELS 5
 
