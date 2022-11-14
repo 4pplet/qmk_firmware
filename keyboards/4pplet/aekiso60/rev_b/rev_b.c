@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 void board_init(void) {
-    setPinInputHigh(LED_CAPS_LOCK_PIN);
+    setPinInputHigh(LED_FN);
 }
 
 /* Set indicator leds to indicate lock states */
@@ -26,11 +26,11 @@ bool led_update_kb(led_t led_state) {
     bool res = led_update_user(led_state);
     if(res) {
         if(led_state.caps_lock){
-            setPinOutput(LED_CAPS_LOCK_PIN);
-            writePin(LED_CAPS_LOCK_PIN, 0);
+            setPinOutput(LED_FN);
+            writePin(LED_FN, 0);
         }
         else
-            setPinInputHigh(LED_CAPS_LOCK_PIN);
+            setPinInputHigh(LED_FN);
     }
     return res;
 }
