@@ -14,6 +14,24 @@
     },
     "processor": "STM32F072",
     "bootloader": "stm32-dfu",
+    "diode_direction": "COL2ROW",
+    "matrix_pins": {
+        "rows":
+        ["B11","B10","B1","B2","B0","A7","A4","A5","A1","A0","B4","B3"],
+        "cols":
+        ["C13","C14","C15","F1","F0","B5","A15","A6","A3"]
+    },
+    "features": {
+        "bootmagic": true,
+        "mousekey": true,
+        "extrakey": true,
+        "console": false,
+        "command": false,
+        "nkro": true,
+        "backlight": false,
+        "rgblight": false,
+        "audio": false
+    },
     "default_layouts": [
        "tkl_ansi",
        "tkl_ansi_split_bs_rshift",
