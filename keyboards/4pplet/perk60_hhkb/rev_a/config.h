@@ -16,38 +16,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
 
-/* USB Device descriptor parameter */
-#define VENDOR_ID       0x4444
-#define PRODUCT_ID      0x000B
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    4pplet
-#define PRODUCT         Perk60 HHKB Rev A
-
-#define MATRIX_ROWS 10
-#define MATRIX_COLS 7
-
-#define MATRIX_COL_PINS { A3, B10, B5, A0, B4, B3, A15}
-#define MATRIX_ROW_PINS { B12, B14, A5, A9, A4, A7, B9, B8, A2, A1}
-#define DIODE_DIRECTION COL2ROW
-
-/* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
-/* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
-
-/* Set 0 if debouncing isn't needed */
-#define DEBOUNCE    5
-
 #define DRIVER_ADDR_1 0b1010000
 #define DRIVER_COUNT 1
 #define DRIVER_LED_TOTAL 64
+#define RGB_MATRIX_LED_COUNT 64
 #define ISSI_PWM_FREQUENCY 0b011
+
+#define CAPS_LOCK_ENABLE TRUE
+#define CAPS_LOCK_COLOR RGB_RED
+#define CAPS_LED_GROUP LED_FLAG_INDICATOR // change what leds to target, for example LED_FLAG_KEYLIGHT for alpas or LED_FLAG_MODIFIER for modifiers
+
 //0b001 pretty good
 //0b000 bad
 //0b010 kinda bad
 //0b011 really good
 //0b100 good, but 0b011 is better
 #define STM32_HSECLK 8000000
+
+
 
 #define RGB_MATRIX_STARTUP_VAL 80
 #define RGB_MATRIX_KEYPRESSES
@@ -80,6 +66,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS
 #define ENABLE_RGB_MATRIX_SPLASH
 #define ENABLE_RGB_MATRIX_SOLID_SPLASH
+
 
 /* Allow VIA to edit lighting */
 #ifdef VIA_ENABLE
