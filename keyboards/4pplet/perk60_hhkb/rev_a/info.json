@@ -30,7 +30,8 @@
         "nkro": true
     },
     "rgb_matrix": {
-        "layout":        [
+        "layout":
+        [
             {"matrix": [0, 0], "x": 0, "y": 0, "flags": 1},
             {"matrix": [1, 0], "x": 16, "y": 0, "flags": 4},
             {"matrix": [0, 1], "x": 32, "y": 0, "flags": 4},
@@ -62,7 +63,7 @@
             {"matrix": [2, 6], "x": 200, "y": 16, "flags": 4},
             {"matrix": [5, 6], "x": 220, "y": 16, "flags": 1},
 
-            {"matrix": [4, 0], "x": 6, "y": 32, "flags": 1},
+            {"matrix": [4, 0], "x": 6, "y": 32, "flags": 8},
             {"matrix": [5, 0], "x": 28, "y": 32, "flags": 4},
             {"matrix": [4, 1], "x": 44, "y": 32, "flags": 4},
             {"matrix": [5, 1], "x": 60, "y": 32, "flags": 4},
