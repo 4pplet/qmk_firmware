@@ -27,7 +27,8 @@
         "console": false,
         "extrakey": true,
         "mousekey": false,
-        "nkro": true
+        "nkro": true,
+        "rgblight": false
     },
     "rgb_matrix": {
         "layout":

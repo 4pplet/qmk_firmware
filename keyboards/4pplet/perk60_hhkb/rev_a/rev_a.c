@@ -14,12 +14,11 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "quantum.h"
+#include "rev_a.h"
 
 #ifdef RGB_MATRIX_ENABLE
 
-
-const is31_led PROGMEM g_is31_leds[DRIVER_LED_TOTAL] = {
+const is31_led PROGMEM g_is31_leds[RGB_MATRIX_LED_COUNT] = {
     { 0, B_1,  A_1,  C_1 }, // Esc
     { 0, B_2,  A_2,  C_2 }, // 1
     { 0, B_3,  A_3,  C_3 }, // 2
@@ -94,7 +93,6 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
     if (!rgb_matrix_indicators_advanced_user(led_min, led_max)) {
         return false;
     }
-
     if (host_keyboard_led_state().caps_lock && CAPS_LOCK_ENABLE) {
         for (uint8_t i = led_min; i <= led_max; i++) {
             if (g_led_config.flags[i] & CAPS_LED_GROUP) {
@@ -102,7 +100,6 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
             }
         }
     }
-
     return true;
 }
 
