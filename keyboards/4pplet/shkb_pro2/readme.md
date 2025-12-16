@@ -1,9 +1,9 @@
-# SHKB
+# SHKB Pro2
 
 An HHKB-style capacitive sensing keyboard controller using STM32.
 
 * Keyboard Maintainer: [4pplet](https://github.com/4pplet)
-* Hardware Supported: SHKB PCB (ANSI and JP variants)
+* Hardware Supported: SHKB Pro2 PCB (ANSI and JP variants)
 * Hardware Availability: TBD
 
 ## Variants
@@ -17,13 +17,13 @@ An HHKB-style capacitive sensing keyboard controller using STM32.
 
 Make example for this keyboard (after setting up your build environment):
 
-    make 4pplet/shkb/ansi:default
-    make 4pplet/shkb/jp:default
+    make 4pplet/shkb_pro2/ansi:default
+    make 4pplet/shkb_pro2/jp:default
 
 Flashing example for this keyboard:
 
-    make 4pplet/shkb/ansi:default:flash
-    make 4pplet/shkb/jp:default:flash
+    make 4pplet/shkb_pro2/ansi:default:flash
+    make 4pplet/shkb_pro2/jp:default:flash
 
 See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
 

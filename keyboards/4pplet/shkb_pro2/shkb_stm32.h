@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "gpio.h"
 
 /*
- * SHKB Matrix I/O for STM32
+ * SHKB Pro2 Matrix I/O for STM32
  *
  * Pin assignments for interfacing with HHKB capacitive sensing matrix:
  *
