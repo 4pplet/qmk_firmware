@@ -1,0 +1,30 @@
+{
+    "keyboard_name": "SHKB",
+    "manufacturer": "4pplet",
+    "url": "https://4pplet.com/",
+    "maintainer": "4pplet",
+    "usb": {
+        "vid": "0x4444",
+        "device_version": "0.0.1"
+    },
+    "processor": "STM32F072",
+    "bootloader": "stm32-dfu",
+    "features": {
+        "bootmagic": true,
+        "mousekey": true,
+        "extrakey": true,
+        "console": true,
+        "command": true,
+        "nkro": true,
+        "rgblight": false
+    },
+    "debounce": 0,
+    "rgblight": {
+        "saturation_steps": 8,
+        "brightness_steps": 8,
+        "led_count": 1
+    },
+    "ws2812": {
+        "pin": "A8"
+    }
+}
