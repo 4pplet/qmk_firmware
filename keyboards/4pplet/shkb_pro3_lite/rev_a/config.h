@@ -26,7 +26,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* GPT timer for accurate wait_us() on Cortex-M0+ */
 #define WAIT_US_TIMER GPTD3
 
-/* Default actuation threshold (ADC value, 12-bit range 0-4095) */
-#define EC_ACTUATION_THRESHOLD 1375
+/* Press/release thresholds (ADC value, 12-bit range 0-4095).
+   Hysteresis gap eliminates chatter for keys hovering near actuation. */
+#define EC_PRESS_THRESHOLD   1375
+#define EC_RELEASE_THRESHOLD 1275
 
-/* Debounce is set to default (5) via keyboard.json */
+/* Define EC_DEBUG (e.g. via rules.mk: OPT_DEFS += -DEC_DEBUG) to print
+   ADC values on every press/release transition via the QMK console. */

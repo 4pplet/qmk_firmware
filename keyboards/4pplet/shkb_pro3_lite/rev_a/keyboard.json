@@ -3,6 +3,9 @@
     "keyboard_name": "SHKB Pro3 Lite Rev A",
     "maintainer": "4pplet",
     "bootloader": "stm32-dfu",
+    "bootmagic": {
+        "matrix": [1, 0]
+    },
     "features": {
         "bootmagic": true,
         "command": true,

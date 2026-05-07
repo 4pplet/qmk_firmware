@@ -19,29 +19,31 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 #include "analog.h"
+#ifdef EC_DEBUG
+#    include "print.h"
+#endif
 
 /*
- * SHKB Pro3 Lite pin mapping to HHKB switch board (active accent indicates accent low accent enable):
+ * SHKB Pro3 Lite pin mapping to HHKB switch board.
  *
- * Row drives (active low):
+ * Row drives (active low, idle high):
  *   ROW0 = PA15    ROW1 = PD2     ROW2 = PB3     ROW3 = PB5
  *
- * Column select (accent SN74LV4051A mux channel A/B/C):
+ * Column select (SN74LV4051A mux channel A/B/C):
  *   COL_A = PB4    COL_B = PD1    COL_C = PD3
  *
  * Mux enable (active low):
  *   U1_EN = PD0    U2_EN = PB6
  *
  * Sensing:
- *   OPAMP_EN  = PC14   (enable OpAmp on switch board)
- *   DISCHARGE = PA0    (discharge sample capacitor)
+ *   OPAMP_EN  = PC14   (active high — enable OpAmp on switch board)
+ *   DISCHARGE = PA0    (active high pulse — discharge sample capacitor)
  *   SENSE     = PA2    (ADC input from OpAmp output)
  *
- * Other:
- *   LDO_ENABLE = PA4   (power to switch board LDO)
- *   LED1       = PB9
- *   LED2       = PB8
- *   RGB        = PB14
+ * Power / indicators:
+ *   LDO_ENABLE = PA4   (active high — power to switch board LDO)
+ *   LED1       = PB9   (currently unused)
+ *   LED2       = PB8   (currently unused)
  */
 
 /* Pin definitions */
@@ -68,7 +70,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 static const pin_t row_pins[MATRIX_ROWS] = {ROW0_PIN, ROW1_PIN, ROW2_PIN, ROW3_PIN};
 
 static adc_mux adc_sense;
-static uint16_t actuation_threshold = EC_ACTUATION_THRESHOLD;
+
+static inline bool ec_update_cell(matrix_row_t *row_bits, uint8_t col, uint16_t val) {
+    bool was_pressed = (*row_bits) & ((matrix_row_t)1 << col);
+    uint16_t threshold = was_pressed ? EC_RELEASE_THRESHOLD : EC_PRESS_THRESHOLD;
+    bool is_pressed = val > threshold;
+
+    if (is_pressed) {
+        *row_bits |= ((matrix_row_t)1 << col);
+    } else {
+        *row_bits &= ~((matrix_row_t)1 << col);
+    }
+    return was_pressed != is_pressed;
+}
 
 static inline void select_col(uint8_t channel) {
     gpio_write_pin(COL_A_PIN, channel & 0x01);
@@ -153,19 +167,15 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
         select_col(col);
 
         for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-            matrix_row_t last_row_value = current_matrix[row];
-
             discharge();
             uint16_t val = sense_key(row);
 
-            if (val > actuation_threshold) {
-                current_matrix[row] |= (1 << col);
-            } else {
-                current_matrix[row] &= ~(1 << col);
-            }
-
-            if (current_matrix[row] != last_row_value) {
+            if (ec_update_cell(&current_matrix[row], col, val)) {
                 matrix_has_changed = true;
+#ifdef EC_DEBUG
+                uprintf("[%u,%u] %u %s\n", row, col, val,
+                        (current_matrix[row] & ((matrix_row_t)1 << col)) ? "PRESS" : "RELEASE");
+#endif
             }
         }
     }
@@ -178,19 +188,15 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
         select_col(col - 8);  /* U2 channels 0-6 */
 
         for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
-            matrix_row_t last_row_value = current_matrix[row];
-
             discharge();
             uint16_t val = sense_key(row);
 
-            if (val > actuation_threshold) {
-                current_matrix[row] |= (1 << col);
-            } else {
-                current_matrix[row] &= ~(1 << col);
-            }
-
-            if (current_matrix[row] != last_row_value) {
+            if (ec_update_cell(&current_matrix[row], col, val)) {
                 matrix_has_changed = true;
+#ifdef EC_DEBUG
+                uprintf("[%u,%u] %u %s\n", row, col, val,
+                        (current_matrix[row] & ((matrix_row_t)1 << col)) ? "PRESS" : "RELEASE");
+#endif
             }
         }
     }
