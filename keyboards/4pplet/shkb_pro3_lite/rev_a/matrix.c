@@ -29,11 +29,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * Row drives (active low, idle high):
  *   ROW0 = PA15    ROW1 = PD2     ROW2 = PB3     ROW3 = PB5
  *
- * Alternate row drives for HHKB top PCB variants with different pin
- * mappings. Driven in lockstep with the primary row so the same firmware
- * works regardless of which top PCB is fitted:
- *   ROW1_JP = PB7  (mirrors ROW1)
- *   ROW2_JP = PA1  (mirrors ROW2)
+ * Alternate row drives for HHKB top PCB variants with a different
+ * layout (e.g. JIS / HHKB JP). Pins are documented but NOT driven by
+ * this firmware — the JP variant likely needs its own LAYOUT macro and
+ * column interpretation, so we'll wire it up properly once that variant
+ * is being targeted. For now PB7 and PA1 are left floating.
+ *   ROW1_JP = PB7  (TODO: drive when JP top PCB is supported)
+ *   ROW2_JP = PA1  (TODO: drive when JP top PCB is supported)
  *
  * Column select (SN74LV4051A mux channel A/B/C):
  *   COL_A = PB4    COL_B = PD1    COL_C = PD3
@@ -76,8 +78,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LED1_PIN B9
 #define LED2_PIN B8
 
-static const pin_t row_pins[MATRIX_ROWS]    = {ROW0_PIN, ROW1_PIN,    ROW2_PIN,    ROW3_PIN};
-static const pin_t row_jp_pins[MATRIX_ROWS] = {NO_PIN,   ROW1_JP_PIN, ROW2_JP_PIN, NO_PIN};
+static const pin_t row_pins[MATRIX_ROWS] = {ROW0_PIN, ROW1_PIN, ROW2_PIN, ROW3_PIN};
 
 static adc_mux adc_sense;
 
@@ -107,13 +108,8 @@ static inline void discharge(void) {
 }
 
 static inline uint16_t sense_key(uint8_t row) {
-    /* Drive row low (active) — drive JP pin in lockstep so the same
-       firmware works on HHKB top PCB variants that route ROW1/ROW2
-       to the alternate pin. */
+    /* Drive row low (active) */
     gpio_write_pin_low(row_pins[row]);
-    if (row_jp_pins[row] != NO_PIN) {
-        gpio_write_pin_low(row_jp_pins[row]);
-    }
     wait_us(2);
 
     /* Read ADC */
@@ -121,23 +117,15 @@ static inline uint16_t sense_key(uint8_t row) {
 
     /* Row back high (idle) */
     gpio_write_pin_high(row_pins[row]);
-    if (row_jp_pins[row] != NO_PIN) {
-        gpio_write_pin_high(row_jp_pins[row]);
-    }
 
     return val;
 }
 
 void matrix_init_custom(void) {
-    /* Configure row pins (and their JP alternates, where present) as
-       output, idle high */
+    /* Configure row pins as output, idle high */
     for (uint8_t i = 0; i < MATRIX_ROWS; i++) {
         gpio_set_pin_output_push_pull(row_pins[i]);
         gpio_write_pin_high(row_pins[i]);
-        if (row_jp_pins[i] != NO_PIN) {
-            gpio_set_pin_output_push_pull(row_jp_pins[i]);
-            gpio_write_pin_high(row_jp_pins[i]);
-        }
     }
 
     /* Configure column select pins as output */
